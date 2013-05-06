@@ -1,6 +1,6 @@
 diff -rupN openvpn/src/openvpn/forward.c openvpn2.3.0/src/openvpn/forward.c
 --- openvpn/src/openvpn/forward.c	2012-12-13 15:46:01.000000000 +0000
-+++ openvpn2.3.0/src/openvpn/forward.c	2013-03-22 15:01:58.556296000 +0000
++++ openvpn-2.3.0/src/openvpn/forward.c	2013-03-22 15:01:58.556296000 +0000
 @@ -674,7 +674,10 @@ read_incoming_link (struct context *c)
    status = link_socket_read (c->c2.link_socket,
  			     &c->c2.buf,
@@ -27,7 +27,7 @@ diff -rupN openvpn/src/openvpn/forward.c openvpn2.3.0/src/openvpn/forward.c
  	    /* Undo effect of prepend */
 diff -rupN openvpn/src/openvpn/options.c openvpn2.3.0/src/openvpn/options.c
 --- openvpn/src/openvpn/options.c	2012-12-17 09:36:07.000000000 +0000
-+++ openvpn2.3.0/src/openvpn/options.c	2013-03-22 15:00:12.172953000 +0000
++++ openvpn-2.3.0/src/openvpn/options.c	2013-03-22 15:00:12.172953000 +0000
 @@ -784,6 +784,9 @@ init_options (struct options *o, const b
    o->max_routes = MAX_ROUTES_DEFAULT;
    o->resolve_retry_seconds = RESOLV_RETRY_INFINITE;
@@ -95,7 +95,7 @@ diff -rupN openvpn/src/openvpn/options.c openvpn2.3.0/src/openvpn/options.c
      {
 diff -rupN openvpn/src/openvpn/options.h openvpn2.3.0/src/openvpn/options.h
 --- openvpn/src/openvpn/options.h	2012-11-22 12:07:50.000000000 +0000
-+++ openvpn2.3.0/src/openvpn/options.h	2013-03-22 14:55:27.514034000 +0000
++++ openvpn-2.3.0/src/openvpn/options.h	2013-03-22 14:55:27.514034000 +0000
 @@ -100,6 +100,9 @@ struct connection_entry
    int connect_retry_max;
    int connect_timeout;
@@ -108,7 +108,7 @@ diff -rupN openvpn/src/openvpn/options.h openvpn2.3.0/src/openvpn/options.h
  #endif  
 diff -rupN openvpn/src/openvpn/socket.c openvpn2.3.0/src/openvpn/socket.c
 --- openvpn/src/openvpn/socket.c	2012-12-13 15:46:01.000000000 +0000
-+++ openvpn2.3.0/src/openvpn/socket.c	2013-03-22 15:11:44.726188000 +0000
++++ openvpn-2.3.0/src/openvpn/socket.c	2013-03-22 15:11:44.726188000 +0000
 @@ -52,6 +52,39 @@ const int proto_overhead[] = { /* indexe
    IPv6_TCP_HEADER_SIZE,
  };
@@ -151,7 +151,7 @@ diff -rupN openvpn/src/openvpn/socket.c openvpn2.3.0/src/openvpn/socket.c
   */
 diff -rupN openvpn/src/openvpn/socket.h openvpn2.3.0/src/openvpn/socket.h
 --- openvpn/src/openvpn/socket.h	2012-12-20 08:56:00.000000000 +0000
-+++ openvpn2.3.0/src/openvpn/socket.h	2013-03-22 15:14:12.819666000 +0000
++++ openvpn-2.3.0/src/openvpn/socket.h	2013-03-22 15:14:12.819666000 +0000
 @@ -249,7 +249,10 @@ struct link_socket
    int gremlin; /* --gremlin bits */
  #endif
