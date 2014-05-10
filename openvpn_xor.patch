@@ -58,7 +58,7 @@ diff -rupN openvpn/src/openvpn/options.c openvpn2.3.0/src/openvpn/options.c
  
  #ifdef ENABLE_HTTP_PROXY
    if (o->http_proxy_options)
-@@ -4911,6 +4920,34 @@ add_option (struct options *options,
+@@ -4911,6 +4920,35 @@ add_option (struct options *options,
        options->proto_force = proto_force;
        options->force_connection_list = true;
      }
@@ -67,28 +67,29 @@ diff -rupN openvpn/src/openvpn/options.c openvpn2.3.0/src/openvpn/options.c
 +      VERIFY_PERMISSION (OPT_P_GENERAL|OPT_P_CONNECTION);
 +	if (streq (p[1], "xormask"))
 +	{
-+	options->ce.xormethod = 1;
-+	options->ce.xormask = p[2];
-+	options->ce.xormasklen = strlen(options->ce.xormask);
++	  options->ce.xormethod = 1;
++	  options->ce.xormask = p[2];
++	  options->ce.xormasklen = strlen(options->ce.xormask);
 +	}
 +	else if (streq (p[1], "xorptrpos"))
 +	{
-+	options->ce.xormethod=2;
++	  options->ce.xormethod=2;
 +	}
 +	else if (streq (p[1], "reverse"))
 +	{
-+	options->ce.xormethod=3;
++	  options->ce.xormethod=3;
 +	}
 +	else if (streq (p[1], "obfuscate"))
 +	{
-+	options->ce.xormethod=4;
-+	options->ce.xormask = p[2];
-+	options->ce.xormasklen = strlen(options->ce.xormask);
++	  options->ce.xormethod=4;
++	  options->ce.xormask = p[2];
++	  options->ce.xormasklen = strlen(options->ce.xormask);
 +	}
 +	else
-+	options->ce.xormask = p[1];
-+	options->ce.xormasklen = strlen(options->ce.xormask);
-+
++	{
++	  options->ce.xormask = p[1];
++	  options->ce.xormasklen = strlen(options->ce.xormask);
++	}
 +    }
  #ifdef ENABLE_HTTP_PROXY
    else if (streq (p[0], "http-proxy") && p[1])
