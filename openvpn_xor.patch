@@ -87,6 +87,7 @@ diff -rupN openvpn/src/openvpn/options.c openvpn2.3.0/src/openvpn/options.c
 +	}
 +	else
 +	{
+     options->ce.xormethod = 1;
 +	  options->ce.xormask = p[1];
 +	  options->ce.xormasklen = strlen(options->ce.xormask);
 +	}
